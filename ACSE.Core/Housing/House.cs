@@ -1,8 +1,10 @@
 ﻿using System.Reflection;
+using System;
 using ACSE.Core.Encryption;
 using ACSE.Core.Items;
 using ACSE.Core.Players;
 using ACSE.Core.Saves;
+using ACSE.Core.Messages.Mail;
 using ACSE.Core.Utilities;
 
 namespace ACSE.Core.Housing
@@ -82,6 +84,15 @@ namespace ACSE.Core.Housing
                 }
             }
             Data = (HouseData)boxedData;
+
+            if (saveData.SaveType == SaveType.AnimalCrossing)
+            {
+                Data.Mailbox = new MailBase[offsets.MailSize];
+                for (int i = 0; i < offsets.MailSize; i++)
+                {
+                    Data.Mailbox[i] = new GcnPlayerMail(saveData, saveData.SaveDataStartOffset + offsets.Mailbox + offsets.MailSize * i);
+                }
+            }
 
             // Load Rooms/Layers
             var itemDataSize = saveData.SaveGeneration == SaveGeneration.N3DS ? 4 : 2;

@@ -4,6 +4,7 @@ using ACSE.Core.Items;
 using ACSE.Core.Patterns;
 using ACSE.Core.Players;
 using ACSE.Core.Saves;
+using ACSE.Core.Messages.Mail;
 
 namespace ACSE.Core.Housing
 {
@@ -57,7 +58,7 @@ namespace ACSE.Core.Housing
         public Item Bed;
         public byte RoofColor;
         public Item[] Customizations;
-        //public Mail[] Mailbox;
+        public MailBase[] Mailbox;
         public GyroidItem[] GyroidItems;
         public string GyroidMessage;
     }
@@ -228,6 +229,9 @@ namespace ACSE.Core.Housing
             RoomWallpaper = 0x8A1,
             Bed = -1,
             Song = -1,
+            Mailbox = 0x500,
+            MailSize = 0x12A,
+            MailCount = 10,
         };
 
         public static readonly HouseOffsets DoubutsuNoMoriEPlusOffsets = new HouseOffsets
