@@ -4838,7 +4838,7 @@ namespace ACSE.WinForms
 
         private void OpenDolphinSaveFileClick(object sender, EventArgs e) => OpenSave(DolphinCityFolkSavePath);
 
-        private readonly string CitraNewLeafSavePath = Path.Combine(Environment.GetEnvironmentVariable("appdata"),
+        private readonly string CitraNewLeafSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             "Citra", "sdmc", "Nintendo 3DS", "00000000000000000000000000000000", "00000000000000000000000000000000",
             "title", "00040000");
 
